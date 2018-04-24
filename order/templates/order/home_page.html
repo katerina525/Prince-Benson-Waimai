@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prince Benson Waimai</title>
+</head>
+<body>
+	<h1>Benson Fusion Restaurant</h1>
+	<p>Tasty Treats To Your Door</p>
+
+	<h2>Here are all our items!</h2>
+
+	<!-- Item 1 -->
+	<p>Pizza: 20RMB</p>
+	<img src="http://smartcanucks.ca/wp-content/uploads/2014/06/pizza-hut-canada.jpg">
+	<br>
+
+	<!-- Item 2 -->
+	<p>Cookie: 10RMB</p>
+	<img src="http://mobiledevmemo.com/wp-content/uploads/2014/12/173572251_Chocolate-chip-cookie.jpg">
+
+	<!-- Item 3 -->
+	<p>Pepsi: 5RMB</p>
+	<img src="http://www.simondanaher.com/mobile/wp2/wp-content/uploads/sites/2/2013/03/ret-Pepsi-Wet-wide-FLT-1920x1280.jpg">
+
+	<!-- Order Form -->
+	<h2>Place your Order</h2>
+	<form action="{% url 'taobao:home_page' %}" method="POST">
+		{% csrf_token %}	
+		<input type="text" name="item" placeholder="Please Type Which Item You Want"><br>
+		<textarea name="address" placeholder="Please Type Your Address"></textarea><br>
+		<input type="submit" value="Place Your Order">
+	</form>
+
+	<!-- Show Order -->
+	<h1>Your Order:</h1>
+	<p>Item Ordered: {{item}}</p>
+	<p>Delivery Address: {{address}}</p>
+
+</body>
+</html>
